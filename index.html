@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ДаЦветы — онлайн-витрина авторских букетов</title>
+  <meta name="description" content="Онлайн-витрина студии флористического декора «ДаЦветы». Авторские букеты со свежими цветами и доставкой в день заказа." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ░░░ HEADER ░░░ -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#top" class="logo">
+        <span class="logo__mark">❀</span>
+        <span class="logo__text">ДаЦветы<small>студия флористического декора</small></span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#vitrina" class="nav__link">Витрина</a>
+        <a href="#gallery" class="nav__link">Галерея</a>
+        <a href="#order" class="nav__link">Заявка</a>
+        <a href="#contacts" class="nav__link">Контакты</a>
+      </nav>
+      <div class="header__actions">
+        <a href="tel:+79991234567" class="header__phone">+7 (999) 123-45-67</a>
+        <a href="https://wa.me/79991234567" class="btn btn--small" target="_blank" rel="noopener">Написать</a>
+      </div>
+      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- ░░░ HERO BANNER ░░░ -->
+  <section class="hero" id="top">
+    <div class="hero__bg"><img src="images/storefront.jpg" alt="" onerror="this.classList.add('img--placeholder')" /></div>
+    <div class="hero__overlay"></div>
+    <div class="container hero__inner">
+      <span class="hero__eyebrow reveal">Студия флористического декора</span>
+      <h1 class="hero__title reveal">Цветы, которые <em>говорят</em> за вас</h1>
+      <p class="hero__subtitle reveal">Авторские букеты со свежими цветами и доставкой в день заказа. Выбирайте из витрины — соберём и привезём за пару часов.</p>
+      <div class="hero__actions reveal">
+        <a href="#vitrina" class="btn">Смотреть витрину</a>
+        <a href="https://wa.me/79991234567" class="btn btn--ghost" target="_blank" rel="noopener">Заказать в WhatsApp</a>
+      </div>
+      <div class="hero__meta reveal">
+        <span>🌿 Свежесть каждый день</span>
+        <span>🚚 Доставка от 2 часов</span>
+        <span>❤️ 1000+ клиентов</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░ VITRINA ░░░ -->
+  <section class="vitrina section" id="vitrina">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="section__eyebrow">Витрина</span>
+        <h2 class="section__title">Букеты в наличии</h2>
+        <p class="section__lead">Нажмите «Заказать» — оформим за минуту, фото готового букета пришлём перед доставкой.</p>
+      </div>
+
+      <div class="filters reveal" id="filters">
+        <button class="filter is-active" data-filter="all">Все</button>
+        <button class="filter" data-filter="pions">Пионы</button>
+        <button class="filter" data-filter="roses">Розы</button>
+        <button class="filter" data-filter="author">Авторские</button>
+        <button class="filter" data-filter="premium">Premium</button>
+      </div>
+
+      <div class="vitrina__grid" id="grid">
+
+        <article class="product reveal" data-category="pions">
+          <div class="product__media">
+            <img src="images/bouquet-1.jpg" alt="Букет Нежность" onerror="this.classList.add('img--placeholder')" />
+            <span class="product__tag">Хит</span>
+          </div>
+          <div class="product__body">
+            <h3 class="product__title">Нежность</h3>
+            <p class="product__desc">Пионовидные розы и нежная зелень в пастельной упаковке.</p>
+            <div class="product__footer">
+              <span class="product__price">4&nbsp;990&nbsp;₽</span>
+              <button class="btn btn--small js-order" data-bouquet="Нежность" data-price="4 990 ₽">Заказать</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product reveal" data-category="author">
+          <div class="product__media">
+            <img src="images/bouquet-2.jpg" alt="Букет Терракота" onerror="this.classList.add('img--placeholder')" />
+          </div>
+          <div class="product__body">
+            <h3 class="product__title">Терракота</h3>
+            <p class="product__desc">Тёплая коралловая палитра с герберой и пионами.</p>
+            <div class="product__footer">
+              <span class="product__price">5&nbsp;490&nbsp;₽</span>
+              <button class="btn btn--small js-order" data-bouquet="Терракота" data-price="5 490 ₽">Заказать</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product reveal" data-category="pions">
+          <div class="product__media">
+            <img src="images/bouquet-3.jpg" alt="Букет Магия пионов" onerror="this.classList.add('img--placeholder')" />
+            <span class="product__tag">Сезон</span>
+          </div>
+          <div class="product__body">
+            <h3 class="product__title">Магия пионов</h3>
+            <p class="product__desc">Пышные пионы с эвкалиптом и жемчужным декором.</p>
+            <div class="product__footer">
+              <span class="product__price">6&nbsp;990&nbsp;₽</span>
+              <button class="btn btn--small js-order" data-bouquet="Магия пионов" data-price="6 990 ₽">Заказать</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product reveal" data-category="pions">
+          <div class="product__media">
+            <img src="images/bouquet-4.jpg" alt="Букет Белое облако" onerror="this.classList.add('img--placeholder')" />
+          </div>
+          <div class="product__body">
+            <h3 class="product__title">Белое облако</h3>
+            <p class="product__desc">Воздушные светлые пионы с нигеллой и жемчугом.</p>
+            <div class="product__footer">
+              <span class="product__price">4&nbsp;490&nbsp;₽</span>
+              <button class="btn btn--small js-order" data-bouquet="Белое облако" data-price="4 490 ₽">Заказать</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product reveal" data-category="author">
+          <div class="product__media">
+            <img src="images/bouquet-5.jpg" alt="Букет Для любимых" onerror="this.classList.add('img--placeholder')" />
+            <span class="product__tag">Хит</span>
+          </div>
+          <div class="product__body">
+            <h3 class="product__title">Для любимых</h3>
+            <p class="product__desc">Коралловые пионы с жемчужной нитью и атласом.</p>
+            <div class="product__footer">
+              <span class="product__price">7&nbsp;490&nbsp;₽</span>
+              <button class="btn btn--small js-order" data-bouquet="Для любимых" data-price="7 490 ₽">Заказать</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product reveal" data-category="premium">
+          <div class="product__media">
+            <img src="images/bouquet-6.jpg" alt="Букет Королевский" onerror="this.classList.add('img--placeholder')" />
+            <span class="product__tag">Premium</span>
+          </div>
+          <div class="product__body">
+            <h3 class="product__title">Королевский</h3>
+            <p class="product__desc">Премиальная композиция из роз, пионов и эустомы.</p>
+            <div class="product__footer">
+              <span class="product__price">9&nbsp;990&nbsp;₽</span>
+              <button class="btn btn--small js-order" data-bouquet="Королевский" data-price="9 990 ₽">Заказать</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product reveal" data-category="roses">
+          <div class="product__media">
+            <img src="images/bouquet-7.jpg" alt="Букет Алый закат" onerror="this.classList.add('img--placeholder')" />
+          </div>
+          <div class="product__body">
+            <h3 class="product__title">Алый закат</h3>
+            <p class="product__desc">Красные розы с пионовидными розами и эвкалиптом.</p>
+            <div class="product__footer">
+              <span class="product__price">5&nbsp;990&nbsp;₽</span>
+              <button class="btn btn--small js-order" data-bouquet="Алый закат" data-price="5 990 ₽">Заказать</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product reveal" data-category="premium">
+          <div class="product__media">
+            <img src="images/bouquet-8.jpg" alt="Букет Коралловый риф" onerror="this.classList.add('img--placeholder')" />
+            <span class="product__tag">Premium</span>
+          </div>
+          <div class="product__body">
+            <h3 class="product__title">Коралловый риф</h3>
+            <p class="product__desc">Монобукет из коралловых пионов с жемчужным декором.</p>
+            <div class="product__footer">
+              <span class="product__price">8&nbsp;490&nbsp;₽</span>
+              <button class="btn btn--small js-order" data-bouquet="Коралловый риф" data-price="8 490 ₽">Заказать</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="vitrina__hint reveal">Не нашли нужный? <a href="https://wa.me/79991234567" target="_blank" rel="noopener">Соберём авторский букет под ваш повод и бюджет →</a></p>
+    </div>
+  </section>
+
+  <!-- ░░░ GALLERY ░░░ -->
+  <section class="gallery section" id="gallery">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="section__eyebrow">Галерея</span>
+        <h2 class="section__title">Наши работы</h2>
+      </div>
+    </div>
+    <div class="gallery__masonry">
+      <figure class="gallery__item reveal"><img src="images/gallery-1.jpg" alt="Букет" onerror="this.classList.add('img--placeholder')" /></figure>
+      <figure class="gallery__item reveal"><img src="images/gallery-2.jpg" alt="Букет" onerror="this.classList.add('img--placeholder')" /></figure>
+      <figure class="gallery__item reveal"><img src="images/gallery-3.jpg" alt="Букет" onerror="this.classList.add('img--placeholder')" /></figure>
+      <figure class="gallery__item reveal"><img src="images/gallery-4.jpg" alt="Букет" onerror="this.classList.add('img--placeholder')" /></figure>
+      <figure class="gallery__item reveal"><img src="images/gallery-5.jpg" alt="Букет" onerror="this.classList.add('img--placeholder')" /></figure>
+      <figure class="gallery__item reveal"><img src="images/gallery-6.jpg" alt="Букет" onerror="this.classList.add('img--placeholder')" /></figure>
+    </div>
+  </section>
+
+  <!-- ░░░ ЗАЯВКА ░░░ -->
+  <section class="order section" id="order">
+    <div class="container order__inner">
+      <div class="order__intro reveal">
+        <span class="section__eyebrow">Оставить заявку</span>
+        <h2 class="section__title">Закажите букет<br>прямо сейчас</h2>
+        <p class="section__lead">Заполните форму — флорист свяжется с вами, уточнит детали и предложит лучший вариант под ваш повод и бюджет.</p>
+        <ul class="order__list">
+          <li>Бесплатная консультация флориста</li>
+          <li>Доставка в день заказа</li>
+          <li>Фото букета перед отправкой</li>
+        </ul>
+      </div>
+
+      <form class="order__form reveal reveal--delay" id="leadForm" novalidate>
+        <div class="field"><label for="l-name">Имя</label><input type="text" id="l-name" name="name" placeholder="Как к вам обращаться" required /></div>
+        <div class="field"><label for="l-phone">Телефон</label><input type="tel" id="l-phone" name="phone" placeholder="+7 (___) ___-__-__" required /></div>
+        <div class="field"><label for="l-date">Дата доставки</label><input type="date" id="l-date" name="date" required /></div>
+        <div class="field"><label for="l-comment">Комментарий</label><textarea id="l-comment" name="comment" rows="3" placeholder="Какой букет, повод, пожелания, бюджет..."></textarea></div>
+        <button type="submit" class="btn btn--full">Отправить заявку</button>
+        <p class="order__note">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.</p>
+        <div class="order__success" id="leadSuccess">
+          <span class="order__success-icon">✓</span>
+          <p>Спасибо! Мы свяжемся с вами в ближайшее время.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ░░░ CONTACTS ░░░ -->
+  <section class="contacts section" id="contacts">
+    <div class="container">
+      <div class="contacts__grid">
+        <div class="contacts__info reveal">
+          <span class="section__eyebrow">Контакты</span>
+          <a href="tel:+79991234567" class="contacts__phone">+7 (999) 123-45-67</a>
+          <p class="contacts__address"><strong>Адрес студии</strong><br>г. Москва, ул. Цветочная, 12<br>Ежедневно 9:00 — 21:00</p>
+          <div class="contacts__socials">
+            <a href="https://wa.me/79991234567" class="social" target="_blank" rel="noopener">WhatsApp</a>
+            <a href="https://t.me/dacvety" class="social" target="_blank" rel="noopener">Telegram</a>
+            <a href="https://instagram.com/daristydio" class="social" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+        <div class="contacts__map reveal reveal--delay">
+          <iframe
+            src="https://yandex.ru/map-widget/v1/?ll=37.617700%2C55.755800&z=15&pt=37.617700,55.755800,pm2rdm"
+            width="100%" height="100%" frameborder="0" allowfullscreen="true"
+            title="Карта расположения студии ДаЦветы" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░ FOOTER ░░░ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#top" class="logo">
+        <span class="logo__mark">❀</span>
+        <span class="logo__text">ДаЦветы<small>студия флористического декора</small></span>
+      </a>
+      <p class="footer__tagline">Авторские букеты и быстрая доставка цветов.</p>
+      <div class="footer__socials">
+        <a href="https://wa.me/79991234567" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://t.me/dacvety" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://instagram.com/daristydio" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <div class="footer__bottom"><div class="container">© 2026 ДаЦветы. Все права защищены.</div></div>
+  </footer>
+
+  <!-- ░░░ ORDER MODAL ░░░ -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal__overlay js-close"></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true">
+      <button class="modal__close js-close" aria-label="Закрыть">×</button>
+      <div class="modal__body" id="modalBody">
+        <span class="section__eyebrow">Оформление заказа</span>
+        <h3 class="modal__title">Заказать букет</h3>
+        <p class="modal__product" id="modalProduct">«Нежность» — 4 990 ₽</p>
+        <form id="orderForm" novalidate>
+          <div class="field"><label for="name">Имя</label><input type="text" id="name" placeholder="Как к вам обращаться" required /></div>
+          <div class="field"><label for="phone">Телефон</label><input type="tel" id="phone" placeholder="+7 (___) ___-__-__" required /></div>
+          <div class="field"><label for="date">Дата доставки</label><input type="date" id="date" required /></div>
+          <div class="field"><label for="comment">Комментарий</label><textarea id="comment" rows="2" placeholder="Повод, пожелания, адрес..."></textarea></div>
+          <button type="submit" class="btn btn--full">Отправить заказ</button>
+          <p class="modal__note">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.</p>
+        </form>
+      </div>
+      <div class="modal__success" id="modalSuccess">
+        <span class="modal__success-icon">✓</span>
+        <h3>Спасибо!</h3>
+        <p>Мы свяжемся с вами в ближайшее время.</p>
+        <button class="btn js-close">Хорошо</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
