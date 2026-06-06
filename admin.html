@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Админка — ДаЦветы</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .admin { max-width: 1080px; margin: 0 auto; padding: 100px 28px 80px; }
+    .admin__top { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 36px; }
+    .admin__title { font-family: var(--font-serif); font-size: 2.4rem; font-weight: 600; }
+    .admin__grid { display: grid; grid-template-columns: 360px 1fr; gap: 30px; align-items: start; }
+    .panel { background: var(--card); border-radius: var(--radius-lg); padding: 28px; box-shadow: inset 0 0 0 1px var(--line); }
+    .panel h2 { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 600; margin-bottom: 18px; }
+    .admin-list { display: grid; gap: 14px; }
+    .row { display: flex; align-items: center; gap: 16px; background: var(--panel); border-radius: 14px; padding: 12px 14px; box-shadow: inset 0 0 0 1px var(--line); }
+    .row__img { width: 56px; height: 56px; border-radius: 10px; object-fit: cover; flex: none; background: #2a211c; }
+    .row__info { flex: 1; min-width: 0; }
+    .row__name { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600; }
+    .row__meta { font-size: .82rem; color: var(--muted); }
+    .row__price { color: var(--terracotta-light); font-weight: 600; white-space: nowrap; }
+    .row.is-hidden { opacity: .5; }
+    .icon-btn { width: 38px; height: 38px; flex: none; border-radius: 10px; box-shadow: inset 0 0 0 1px var(--line); display: grid; place-items: center; font-size: 1.05rem; transition: background .25s, color .25s; }
+    .icon-btn:hover { background: var(--card-2); }
+    .icon-btn--danger:hover { background: #5a2018; color: #ffb4a3; }
+    .preview { margin-top: 10px; width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; display: none; }
+    .preview.show { display: block; }
+    .hint { font-size: .8rem; color: var(--muted-2); margin-top: 6px; }
+    .toolbar { display: flex; gap: 10px; flex-wrap: wrap; }
+    /* login */
+    .login { position: fixed; inset: 0; background: var(--bg); display: grid; place-items: center; z-index: 500; padding: 20px; }
+    .login__box { background: var(--card); border-radius: var(--radius-lg); padding: 40px; max-width: 380px; width: 100%; box-shadow: inset 0 0 0 1px var(--line), var(--shadow); text-align: center; }
+    .login__box h1 { font-family: var(--font-serif); font-size: 2rem; font-weight: 600; margin-bottom: 6px; }
+    .login__box p { color: var(--muted); margin-bottom: 22px; font-size: .92rem; }
+    .login__err { color: #ff9b86; font-size: .85rem; margin-top: 10px; min-height: 1em; }
+    @media (max-width: 760px){ .admin__grid{ grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- Логин -->
+  <div class="login" id="login">
+    <div class="login__box">
+      <h1>ДаЦветы</h1>
+      <p>Панель управления витриной.<br>Введите пароль для входа.</p>
+      <form id="loginForm">
+        <div class="field"><input type="password" id="pass" placeholder="Пароль" autocomplete="current-password" /></div>
+        <button class="btn btn--full" type="submit">Войти</button>
+        <div class="login__err" id="loginErr"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Админка -->
+  <main class="admin" id="admin" style="display:none">
+    <div class="admin__top">
+      <div class="admin__title">Управление витриной</div>
+      <div class="toolbar">
+        <a class="btn btn--ghost btn--small" href="index.html" target="_blank" rel="noopener">Открыть сайт</a>
+        <button class="btn btn--ghost btn--small" id="resetBtn">Сбросить к примерам</button>
+        <button class="btn btn--small" id="logoutBtn">Выйти</button>
+      </div>
+    </div>
+
+    <div class="admin__grid">
+      <!-- Добавить -->
+      <section class="panel">
+        <h2 id="formTitle">Добавить букет</h2>
+        <form id="bouquetForm">
+          <input type="hidden" id="editId" />
+          <div class="field"><label for="f-name">Название</label><input type="text" id="f-name" required placeholder="Например, Нежность" /></div>
+          <div class="field"><label for="f-cat">Категория</label><select id="f-cat" required></select></div>
+          <div class="field"><label for="f-comp">Состав</label><textarea id="f-comp" rows="2" placeholder="Пионы, эвкалипт, упаковка"></textarea></div>
+          <div class="field"><label for="f-price">Цена, ₽</label><input type="number" id="f-price" min="0" step="10" required placeholder="4990" /></div>
+          <div class="field">
+            <label for="f-img">Фото</label>
+            <input type="file" id="f-img" accept="image/*" />
+            <div class="hint">или укажите имя файла рядом с сайтом: bouquet-1.jpg</div>
+            <input type="text" id="f-imgname" placeholder="bouquet-1.jpg" style="margin-top:8px" />
+            <img class="preview" id="preview" alt="" />
+          </div>
+          <button class="btn btn--full" type="submit" id="submitBtn">Добавить букет</button>
+          <button class="btn btn--ghost btn--full" type="button" id="cancelEdit" style="display:none;margin-top:10px">Отменить редактирование</button>
+        </form>
+      </section>
+
+      <!-- Список -->
+      <section class="panel">
+        <h2>Букеты в витрине</h2>
+        <div class="admin-list" id="adminList"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="store.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
