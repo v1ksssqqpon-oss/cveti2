@@ -47,9 +47,10 @@ function renderCategories() {
     const items = all.filter(b => b.category === cat.id);
     if (!items.length) return; // пустые категории не показываем
     const shots = items.slice(0, 3);
-    const roles = ['front', 'top', 'br'];
     const layers = shots
-      .map((b, idx) => `<span class="cat-stack__layer cat-stack__layer--${roles[idx]}"><img src="images/${escapeHtml(b.img)}" alt="${escapeHtml(b.name || cat.label)}" loading="lazy" onerror="this.classList.add('img--placeholder')" /></span>`)
+      .map((b, idx) => ({ b, depth: idx }))
+      .sort((a, c) => c.depth - a.depth)
+      .map(o => `<span class="cat-stack__layer" style="--i:${o.depth}"><img src="images/${escapeHtml(o.b.img)}" alt="${escapeHtml(o.b.name || cat.label)}" loading="lazy" onerror="this.classList.add('img--placeholder')" /></span>`)
       .join('');
 
     const card = document.createElement('button');
